@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include "libft.h"
 
-char        **ft_strsplit(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
-	char	**str;
+	char		**str;
 	int		i;
 	int		j;
 	int		k;
