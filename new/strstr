@@ -1,0 +1,5 @@
+cherche la premier occurence dans le corpus
+
+ex : s1[] = "le ciel est beau" s2[] = "beau"
+	-> find s2 in s1
+
