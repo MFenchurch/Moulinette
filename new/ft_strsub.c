@@ -13,7 +13,7 @@ char * ft_strsub(char const *s, unsigned int start, size_t len)
 		while (index != start)
 			index++;
 		start = 0;
-		while (start != len)
+		while (start <= len // + 1 ????????)
 		{
 			dest[start] = s[index];
 			index++;
