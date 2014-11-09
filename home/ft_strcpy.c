@@ -20,7 +20,7 @@ char	*ft_strcpy(char *dest, char *src)
 	index = 0;
 	if (dest != NULL && src != NULL)
 	{
-		while (src)
+		while (src[index] != '\0')
 		{
 			dest[index] = src[index];
 			index++;

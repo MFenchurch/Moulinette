@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char * ft_strsub(char const *s, unsigned int start, size_t len)
+char *ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	int	index;
 	char	*dest;
@@ -22,7 +22,7 @@ char * ft_strsub(char const *s, unsigned int start, size_t len)
 	dest = malloc(sizeof(char) * len + 1);
 	if (len && s && dest)
 	{
-		while (index != start)
+		while (index != (int)start)
 			index++;
 		start = 0;
 		while (start <= len)
