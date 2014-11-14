@@ -6,7 +6,7 @@
 /*   By: jelefebv <jelefebv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 12:47:42 by jelefebv          #+#    #+#             */
-/*   Updated: 2014/11/08 13:29:16 by jelefebv         ###   ########.fr       */
+/*   Updated: 2014/11/12 18:48:41 by jelefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,18 @@
 
 char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	size_t		index;
+	size_t	index;
 
 	index = 0;
-	if (dest != NULL && src != NULL)
+	while (src[index] && index < n)
 	{
-		while (src && index < n)
-		{
-			dest[index] = src[index];
-			index++;
-		}
-		if (index <= n)
-		{
-			while (index < n)
-				dest[index++] = '\0';
-		}
-		return (dest);
+		dest[index] = src[index];
+		index++;
 	}
-	return (NULL);
+	while (index < n)
+	{
+		dest[index] = '\0';
+		index++;
+	}
+	return (dest);
 }

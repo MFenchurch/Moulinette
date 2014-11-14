@@ -6,7 +6,7 @@
 /*   By: jelefebv <jelefebv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/06 10:44:06 by jelefebv          #+#    #+#             */
-/*   Updated: 2014/11/06 10:45:34 by jelefebv         ###   ########.fr       */
+/*   Updated: 2014/11/12 17:36:37 by jelefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int		ft_toupper(int c)
 {
-	if (ft_isalpha(c))
-		c = c - 'a' + 'A';
-	return (c);
+	return ((c >= 'a' && c <= 'z') ? (c - 'a' + 'A') : c);
 }

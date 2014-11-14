@@ -6,7 +6,7 @@
 /*   By: jelefebv <jelefebv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 09:42:59 by jelefebv          #+#    #+#             */
-/*   Updated: 2014/11/08 17:45:25 by jelefebv         ###   ########.fr       */
+/*   Updated: 2014/11/12 17:56:31 by jelefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 char	*ft_strstr(const char *s1, const char *s2)
 {
-	char	*temp;
-	int		index;
+	int		len;
+	int		len2;
 
-	index = 0;
-	if (s1 == NULL && s2 == NULL)
+	if (!*s2)
+		return ((char *)s1);
+	len = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	while (*s1 && len >= len2)
 	{
-		while (s1[index] != '\0')
+		if (ft_strncmp(s1, s2, len2) == 0)
 		{
-			if (ft_strcp)
-				return ();;
+			return ((char *)s1);
 		}
-		return ();
+		s1++;
+		len--;
 	}
 	return (NULL);
 }

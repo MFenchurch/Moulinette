@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jelefebv <jelefebv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/08 11:57:18 by jelefebv          #+#    #+#             */
-/*   Updated: 2014/11/13 14:43:18 by jelefebv         ###   ########.fr       */
+/*   Created: 2014/11/12 11:00:14 by jelefebv          #+#    #+#             */
+/*   Updated: 2014/11/12 11:02:27 by jelefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include <string.h>
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char	*dest;
-	size_t	index;
+	char		*tmp;
+	const char	*tmp2;
+	size_t		i;
 
-	dest = (char *)malloc(sizeof(char) * len + 1);
-	index = 0;
-	if (dest == NULL)
-		return (NULL);
-	while (index < len)
+	tmp = dest;
+	tmp2 = src;
+	i = 0;
+	while (i < n)
 	{
-		dest[index] = s[start + index];
-		index++;
+		tmp[i] = tmp2[i];
+		i++;
 	}
-	dest[index] = '\0';
 	return (dest);
 }

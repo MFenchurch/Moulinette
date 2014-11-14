@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jelefebv <jelefebv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/08 11:57:18 by jelefebv          #+#    #+#             */
-/*   Updated: 2014/11/13 14:43:18 by jelefebv         ###   ########.fr       */
+/*   Created: 2014/11/14 14:58:36 by jelefebv          #+#    #+#             */
+/*   Updated: 2014/11/14 14:58:55 by jelefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include <string.h>
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*dest;
-	size_t	index;
+	const unsigned char		*tmp;
+	unsigned int			i;
 
-	dest = (char *)malloc(sizeof(char) * len + 1);
-	index = 0;
-	if (dest == NULL)
-		return (NULL);
-	while (index < len)
+	i = 0;
+	tmp = (unsigned char *)s;
+	while (i < n)
 	{
-		dest[index] = s[start + index];
-		index++;
+		if (tmp[i] == (unsigned char)c)
+			return ((void *)&tmp[i]);
+		else
+			i++;
 	}
-	dest[index] = '\0';
-	return (dest);
+	return (NULL);
 }
