@@ -6,60 +6,57 @@
 /*   By: jelefebv <jelefebv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/13 15:27:59 by jelefebv          #+#    #+#             */
-/*   Updated: 2014/11/14 18:19:21 by jelefebv         ###   ########.fr       */
+/*   Updated: 2014/11/15 12:14:54 by jelefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-int		ft_count_len(int n)
+static char		*ft_itoa_last(int n, int i, int div, char *str)
 {
-	int		count;
+	int		j;
 
-	count = 1;
+	j = 0;
+	div = 0;
 	if (n < 0)
 	{
-		count++;
+		div = 1;
 		n = -n;
+		i++;
 	}
-	while (n > 9)
+	str = (char *)malloc(sizeof(char) * i + 1);
+	if (!str)
+		return (NULL);
+	j = i;
+	while (--i >= div)
 	{
+		str[i] = (n % 10) + '0';
 		n = n / 10;
-		count++;
 	}
-	return (count);
+	str[j] = '\0';
+	if (i == 0)
+		str[i] = '-';
+	return (str);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
-	char	*d;
-	int		index;
+	int		i;
+	int		div;
+	char	*str;
 
-	index = 0;
-	d = (char *)malloc(sizeof(char) * ft_count_len(n) + 1);
+	i = 0;
+	div = n;
+	str = NULL;
 	if (n == 0)
 		return (ft_strdup("0"));
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	while (n >= 0)
+	while (div != 0)
 	{
-		n = n / 10;
-		d[index] = ('0' + n % 10);
-		index++;
+		div = div / 10;
+		i++;
 	}
-	if (n < 0)
-	{
-		d[index] = '-';
-		index++;
-		n = -n;
-		while (n >= 0)
-		{
-			n = n / 10;
-			d[index] = ('0' + n % 10);
-			index++;
-		}
-	}
-	d[index] = '\0';
-	return (d);
+	return (ft_itoa_last(n, i, div, str));
 }

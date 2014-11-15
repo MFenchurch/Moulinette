@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jelefebv <jelefebv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/12 15:36:55 by jelefebv          #+#    #+#             */
-/*   Updated: 2014/11/15 10:45:10 by jelefebv         ###   ########.fr       */
+/*   Created: 2014/11/15 18:50:42 by jelefebv          #+#    #+#             */
+/*   Updated: 2014/11/15 19:05:36 by jelefebv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
-char	*ft_strrchr(const char *s, int c)
+void	*ft_memalloc(size_t size)
 {
-	char	*tmp;
+	char	*ptr;
+	size_t	i;
 
-	tmp = NULL;
-	if (s != NULL)
+	i = 0;
+	ptr = (void *)malloc(size);
+	if (!ptr)
 	{
-		while (*s)
-		{
-			if (*s == (char)c)
-				tmp = (char *)s;
-			s++;
-		}
-		if ((char)c == '\0')
-			return ((char *)s);
+		return (NULL);
 	}
-	return (tmp);
+	while (i < size)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
 }
